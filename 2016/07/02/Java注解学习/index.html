@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://xiaoming826.github.io/2016/07/02/Java注解学习/index.html">
 <meta property="og:site_name" content="码字猴">
 <meta property="og:description" content="这段时间使用了butterKnife、retrofit等框架，对Java注解产生了兴趣，感觉不懂Annotation，用着这些框架也不放心：）">
-<meta property="og:updated_time" content="2016-07-02T11:29:04.000Z">
+<meta property="og:updated_time" content="2016-07-04T04:08:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java注解学习">
 <meta name="twitter:description" content="这段时间使用了butterKnife、retrofit等框架，对Java注解产生了兴趣，感觉不懂Annotation，用着这些框架也不放心：）">
@@ -317,7 +317,7 @@
 </li>
 </ul>
 <h3 id="Retention"><a href="#Retention" class="headerlink" title="@Retention"></a>@Retention</h3><ul>
-<li>作用：表示需要在什么级别保存该注释信息，用于描述注解的生命周期（即：被描述的注解在什么范围内有效）</li>
+<li>作用：表示需要在什么级别保存该注释信息，用于描述注解的生命周期（即：被描述的注解在什么范围内有效）。默认为CLASS，值为SOURCE大都为MarkAnnotation，这类Annotation大都用来校验，比如Override,Deprecated,SuppressWarnings。</li>
 <li>取值（RetentionPoicy）有：<blockquote>
 <p>1.SOURCE:在源文件中有效（即源文件保留）<br>2.CLASS:在class文件中有效（即class保留）<br>3.RUNTIME:在运行时有效（即运行时保留）</p>
 </blockquote>
@@ -327,7 +327,7 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column</span>(name = <span class="string">"java"</span>,setFuncName = <span class="string">"jdj"</span>,getFuncName = <span class="string">"jjj"</span>,defaultDBValue = <span class="keyword">false</span>)</span><br><span class="line">    <span class="keyword">private</span> String ss;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"不能这么用"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getString</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Documented"><a href="#Documented" class="headerlink" title="@Documented"></a>@Documented</h3><ul>
-<li>@Documented用于描述其它类型的annotation应该被作为被标注的程序成员的公共API，因此可以被例如javadoc此类的工具文档化。</li>
+<li>@Documented用于描述其它类型的annotation应该被作为被标注的程序成员的公共API，因此可以被例如javadoc此类的工具文档化。即是否会保存到Javadoc文档中。</li>
 </ul>
 <h3 id="Inherited"><a href="#Inherited" class="headerlink" title="@Inherited"></a>@Inherited</h3><ul>
 <li>@Inherited 元注解是一个标记注解，@Inherited阐述了某个被标注的类型是被继承的。如果一个使用了@Inherited修饰的annotation类型被用于一个class，则这个annotation将被用于该class的子类。</li>
